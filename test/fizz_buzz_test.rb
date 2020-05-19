@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 # テストコード読み込み
-require ''
+require './lib/fizz_buzz.rb'
 
 class FizzBuzzTest < Minitest::Test
   def test_fizzbuzz
@@ -13,3 +13,4 @@ class FizzBuzzTest < Minitest::Test
     assert_equal 'FizzBuzz', fizz_buzz(15)
   end
 end
+# テスティングフレームワークは他にRSpecやtest-unitがある
