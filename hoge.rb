@@ -1,6 +1,5 @@
+number = [1,2,3,4]
 
-def r(s)
-  s.reverse.upcase!
-end
-s ='tesuto'
-puts r(s)
+sum = 0
+number.each {|n| sum += n }
+puts sum
