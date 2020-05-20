@@ -1,5 +1,13 @@
-number = [1,2,3,4]
+foods = ['ピーマン','トマト','セロリ']
+count = 0
+foods.each do |food|
+  print "#{food}は好きですか"
+  anser = ['いいえ']
+  puts anser
 
-sum = 0
-number.each {|n| sum += n }
-puts sum
+  count += 1
+  # redo unless anser == 'いいえ' && count < 2
+  redo if anser != 'はい' && count < 2
+
+  count = 0
+end
