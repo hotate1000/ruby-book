@@ -1,14 +1,23 @@
-# text = '私の誕生日は1997年7月17日です。'
-# m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
+modle DeepFreezable
+  def deep_freeze(array_or_hash)
+  end
+end
 
-# puts m[1]
-# puts m[2]
-# puts m[3]
-# puts m[0,2]
+class Team
+  extend DeepFreezable
 
-# puts m[:year]
-# puts m[:month]
+  COUNTRIES = deep_freeze(['Japan','US','India'])
+end
 
+Team::COUNTRIES.frozen?
+Team::COUNTRIES.all?{|country| country.frozen?}
 
-mm = '123 456 789'.scan(/d+/)
-puts mm
+class Bank
+  extend DeepFreezable
+  
+  COUNTRIES = deep_freeze({'japan' => 'yen','US' => 'dollar','India' => 'rupee'})
+end
+
+Bank::COUNTRIES.frozen?
+Bank::COUNTRIES.all?{|key,value| key.frozen? && value.frozen? && value.frozen?}
+
