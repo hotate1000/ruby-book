@@ -1,23 +1,13 @@
-modle DeepFreezable
-  def deep_freeze(array_or_hash)
+retry_count = 0
+begin
+  puts '処理を開始します。'
+  1/0
+rescue
+  retry_count += 1
+  if retry_count <= 3
+    puts "retryします。#{retry_count}回目"
+    retry
+  else
+    puts 'retryに失敗しました。'
   end
 end
-
-class Team
-  extend DeepFreezable
-
-  COUNTRIES = deep_freeze(['Japan','US','India'])
-end
-
-Team::COUNTRIES.frozen?
-Team::COUNTRIES.all?{|country| country.frozen?}
-
-class Bank
-  extend DeepFreezable
-  
-  COUNTRIES = deep_freeze({'japan' => 'yen','US' => 'dollar','India' => 'rupee'})
-end
-
-Bank::COUNTRIES.frozen?
-Bank::COUNTRIES.all?{|key,value| key.frozen? && value.frozen? && value.frozen?}
-
