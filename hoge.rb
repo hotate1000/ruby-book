@@ -1,13 +1,12 @@
-retry_count = 0
-begin
-  puts '処理を開始します。'
-  1/0
-rescue
-  retry_count += 1
-  if retry_count <= 3
-    puts "retryします。#{retry_count}回目"
-    retry
-  else
-    puts 'retryに失敗しました。'
-  end
-end
+synth = WordSynth.new
+synth.play('Ruby is fun')
+
+synth = WordSynth.new
+synth.add_effect(Effects.reverse)
+synth.play('Ruby is fun!')
+
+synth= WordSynth.new
+synth.add_effect(Effects.echo(2))
+synth.add_effect(Effects.loud(3))
+synth.add_effect(Effects.reverse)
+synth.play('Ruby is fun!')
