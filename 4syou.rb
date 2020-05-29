@@ -36,3 +36,8 @@ puts sum
 
 test1 = [10,10,11,12,16].map {|n| n.to_s(16)} 
 puts test1
+
+a = [1,2,3,4,5]
+b = [1,2,3,4,5]
+puts a.values_at(1,2)
+puts b[b.length-1]
