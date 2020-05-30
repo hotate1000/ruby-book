@@ -41,3 +41,17 @@ a = [1,2,3,4,5]
 b = [1,2,3,4,5]
 puts a.values_at(1,2)
 puts b[b.length-1]
+
+
+sum = 0
+4.times {|n| sum += n}
+puts sum
+
+
+sum = 0
+10.upto(12) {|n| sum += n}
+puts sum
+
+sum = 0
+10.step(12,1) {|n| sum += n}
+puts sum
