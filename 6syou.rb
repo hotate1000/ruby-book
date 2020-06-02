@@ -26,12 +26,12 @@ puts text.split(/\n/).grep(/クープ.?バ[ゲケ]ット/)
 
 
 
-<select name="game_console">
-none,,
-wii_u, selected,Wii U
-ps4,,プレステ4
-gb,,ゲームボーイ
-</select>
+# <select name="game_console">
+# none,,
+# wii_u, selected,Wii U
+# ps4,,プレステ4
+# gb,,ゲームボーイ
+# </select>
 
 
 def hello(name)
@@ -45,10 +45,10 @@ hello('Bob')
 hello('Carol')
 
 
-Lorem ipsum dolor sit amet.
-Vestibulum luctus est ut mauris tempor tincidunt.
-Suspendisse eget metus
-Curabitur nec urna eget ligula accumsan congue.
+# Lorem ipsum dolor sit amet.
+# Vestibulum luctus est ut mauris tempor tincidunt.
+# Suspendisse eget metus
+# Curabitur nec urna eget ligula accumsan congue.
 
 
 {
@@ -57,6 +57,44 @@ Curabitur nec urna eget ligula accumsan congue.
   italy: 'euro'
 }
 
-name,email
-alice,alice@example.com
-bob,bob@example.com
+# name,email
+# alice,alice@example.com
+# bob,bob@example.com
+
+
+
+
+p '123 456 789'.scan(/\d+/)
+
+t = '1990年03月19日 2018年09月23日'
+p '1990年03月19日 2018年09月23日'.scan(/\d+年\d+月\d+日/)
+p '1990年03月19日 2018年09月23日'.scan(/(\d+)年(\d+)月(\d+)日/)
+p '1990年03月19日 2018年09月23日'.scan(/(?:\d+)年(?:\d+)月(?:\d+)日/)
+
+
+
+text = '郵便局は123-4567です。郵便局は321-7654です。'
+p text[/\d{3}-\d{4}/]
+p text[/(\d{3})-(\d{4})/,2]
+m = t[/(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/,:day]
+p m
+
+
+a = '123-456-789~123'
+p a.split('-')
+p a
+p a.gsub('-',':')
+p a.gsub(/-|~/,':')
+
+
+b = '誕生日は1977年7月17日です。'
+p b.gsub(
+  /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/,
+  '\k<year>-\k<month>-\k<day>'
+)
+
+
+
+c = '123,456-789'
+hash = {','=>':','-'=>'/'}
+p c.gsub(/,|-/,hash)
