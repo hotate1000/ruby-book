@@ -41,24 +41,30 @@ require 'minitest/autorun'
 require './lib/gate.rb'
 
 class GateTest < Minitest::Test
-  def test_gate
+  def setup
+    @umeda  = Gate.new(:umeda)
+    @juso   = Gate.new(:juso)
+    @mikuni = Gate.new(:mikuni)
+  end
+
+  def test_umeda_to_juso
     # 私は改札機です。umeda、jusoという名前(@name)を持っています。
-    umeda  = Gate.new(umeda)
-    juso   = Gate.new(juso)
+    # umeda  = Gate.new(umeda)
+    # juso   = Gate.new(juso)
     # 私は運賃です。150円という運賃(@fare)を持っています。
     ticket = Ticket.new(150)
     # umeda改札機に切符を挿入(enter)します。
-    umeda.enter(ticket)
+    @umeda.enter(ticket)
 
-    assert juso.exit(ticket)
+    assert @juso.exit(ticket)
   end
 
   def test_umeda_to_mikuni_when_fare_is_not_enough
-    umeda   = Gate.new(umeda)
-    mikuni  = Gate.new(mikuni)
+    # umeda   = Gate.new(umeda)
+    # mikuni  = Gate.new(mikuni)
     ticket  = Ticket.new(150)
-    umeda.enter(ticket)
+    @umeda.enter(ticket)
 
-    refute mikuni.exit(ticket)
+    refute @mikuni.exit(ticket)
   end
 end
