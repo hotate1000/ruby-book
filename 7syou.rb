@@ -40,5 +40,56 @@ class User2
       Users.new(name)
     end
   end
+end
 
-  def hello
+class Product
+  @name = 'Product'
+
+  def self.name
+    @name
+  end
+
+  def initialize(name)
+    @name = name
+  end
+
+  def name
+    @name
+  end
+end
+
+class DVD < Product
+  def self.name
+    @name = 'DVD'
+  end
+
+  def upcace_name
+    @name.upcase
+  end
+end
+
+p Product.name
+p DVD.name
+
+product = Product.new('A great movie')
+p product.name
+
+dvd = DVD.new('An awesome film')
+p dvd.name
+p dvd.upcace_name
+
+p product.name
+
+
+
+
+class User3
+  def name=(value)
+    @name = value
+  end
+end
+
+p user = User3.new
+p user.name='Alice'
+
+# p 'MyString'.underscore
