@@ -93,3 +93,30 @@ p user = User3.new
 p user.name='Alice'
 
 # p 'MyString'.underscore
+
+
+class User
+  def initialize(name,age,phone_number,user_height,user_weight)
+    @name         = name
+    @age          = age
+    @phone_number = phone_number
+    @user_height  = user_height
+    @user_weight  = user_weight
+  end
+
+  def user_data_organize
+    "名前：#{@name}、年齢：#{@age}、電話番号：#{@phone_number}、BMI：#{bmi}"
+  end
+
+  def bmi #体重(kg)/身長(m)の2乗
+    (@user_weight.to_f/((@user_height.to_f/100)**2)).round(2)
+  end
+end
+
+# user_data1 = User.new('tanaka', '20', '123-456-7890', '170', '60')
+user_data1 = User.new('tanaka', '20', '123-456-7890', '170', '100') 
+user_data2 = User.new('yamada', '30', '321-654-0987', '220', '80' ) 
+
+p user_data1.bmi
+p user_data1.user_data_organize
+p user_data2.user_data_organize
