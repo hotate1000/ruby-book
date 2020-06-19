@@ -1,6 +1,7 @@
-require './lib/deep_freezable'
+require './lib/deep_freezable.rb'
 
-class Bank
+class Team
   extend DeepFreezable
-  CURRENCIES = deep_freeze({'japan' => 'yen','US' => 'dollar','India' => 'rupee'})
-end 
+  # 配列
+  COUNTRIES = deep_freeze(['Japan','US','India'])
+end

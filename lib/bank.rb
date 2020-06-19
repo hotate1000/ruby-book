@@ -1,6 +1,7 @@
 require './lib/deep_freezable'
 
-class Team
+class Bank
   extend DeepFreezable
-  COUNTRIES = deep_freeze(['Japan','US','India'])
+  # ハッシュ
+  CURRENCIES = deep_freeze({'Japan'=>'yen','US'=>'dollar','India'=>'rupee'})
 end
